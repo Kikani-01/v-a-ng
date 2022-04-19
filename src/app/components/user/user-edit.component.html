@@ -1,0 +1,292 @@
+<p-confirmDialog
+    acceptLabel="OK"
+    [closable]="false"
+    [style]="{ width: '50vw' }"
+></p-confirmDialog>
+
+<p-toast position="bottom-right"></p-toast>
+
+<div class="top-wrapper">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-6">
+            <h1>
+                {{
+                    element.uuid
+                        ? ('common.edit' | translate)
+                        : ('common.create' | translate)
+                }}
+                {{ 'homepage.user' | translate }}
+            </h1>
+        </div>
+        <div class="p-col-12 p-md-6">
+            <button
+                pButton
+                type="button"
+                class="p-button-secondary pull-right"
+                icon="fa fa-save"
+                [pTooltip]="'common.save' | translate"
+                (click)="save()"
+                [disabled]="!registerForm.valid"
+                *ngIf="!element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-secondary pull-right"
+                icon="fa fa-save"
+                [pTooltip]="'common.update' | translate"
+                (click)="update()"
+                [disabled]="!registerForm.valid"
+                *ngIf="element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-tertiary pull-right"
+                icon="fa fa-trash"
+                [pTooltip]="'common.delete' | translate"
+                tooltipPosition="top"
+                (click)="delete()"
+                *ngIf="element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-primary pull-right"
+                icon="fa fa-window-close"
+                [pTooltip]="'common.cancel' | translate"
+                tooltipPosition="top"
+                (click)="goToList()"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="p-grid">
+        <div class="p-col-12">
+            <form [formGroup]="registerForm">
+                <p-card>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.fiscalcode' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.fiscalcode"
+                                        formControlName="fiscalcode"
+                                        name="fiscalcode"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.fiscalcode'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.name' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.name"
+                                        formControlName="name"
+                                        name="name"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.name' | translate | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.surname' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.surname"
+                                        formControlName="surname"
+                                        name="surname"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.surname'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.address' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.address"
+                                        formControlName="address"
+                                        name="address"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.address'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="address"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.city' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.city"
+                                        formControlName="city"
+                                        name="city"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.city'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.province' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.province"
+                                        formControlName="province"
+                                        name="province"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.province'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.email' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.email"
+                                        formControlName="email"
+                                        name="email"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.email'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="email"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.mobile_phone' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.mobile_phone"
+                                        formControlName="mobile_phone"
+                                        name="mobile_phone"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.mobile_phone'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.company' | translate }}
+                                </div>
+
+                                <div class="p-col-9">
+                                    <p-autoComplete
+                                        [(ngModel)]="selectedCompany"
+                                        [suggestions]="filteredCompany"
+                                        (completeMethod)="filterCompany($event)"
+                                        name="company_uuid"
+                                        field="name"
+                                        [size]="30"
+                                        [placeholder]="
+                                            'users.company'
+                                                | translate
+                                                | lowercase
+                                        "
+                                        [minLength]="1"
+                                        (onSelect)="fillCompany()"
+                                        [dropdown]="true"
+                                        formControlName="company_uuid"
+                                    >
+                                    </p-autoComplete>
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-3">
+                                    {{ 'users.active' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.active"
+                                        formControlName="active"
+                                        name="active"
+                                        pInputText
+                                        [placeholder]="
+                                            'users.active'
+                                                | translate
+                                                | lowercase
+                                      "
+                                        type="boolean"
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </p-card>
+            </form>
+        </div>
+    </div>
+</div>

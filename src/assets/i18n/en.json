@@ -1,0 +1,234 @@
+{
+    "vatnumber": "vatnumber",
+    "company_uuid": "Company",
+    "last_update": "Update Date",
+    "start_date": "Creation Date",
+    "creation_date": "Creation Date",
+    "DRAFT": "DRAFT",
+    "CREATED": "CREATED",
+    "STARTED": "STARTED",
+    "COMPLETED": "COMPLETED",
+    "COMPLETED_WITH_ERROR": "COMPLETED_WITH_ERROR",
+    "EXPIRED": "EXPIRED",
+    "CANCELED": "CANCELED",
+    "IN_SIGNATURE": "IN_SIGNATURE",
+    "name": "Name",
+    "surname": "Surname",
+    "mobile_phone": "Mobile Phone",
+    "email": "Email",
+    "address": "Address",
+    "company": "Company",
+    "signature_date": "Signature Date",
+    "received_date": "Recieved Date",
+    "operation_type": "Operation Type",
+    "obj_type": "Object type",
+    "obj_uuid": "Object uuid",
+    "COMPANIES": "COMPANIES",
+    "SIGNATURE": "SIGNATURE",
+    "CUSTOMERS": "CUSTOMERS",
+    "CONFIGURATIONS": "CONFIGURATIONS",
+    "USERS": "USERS",
+
+    "homepage": {
+        "welcome": "Welcome",
+        "version": "Version",
+        "dashboard": "Dashboard",
+        "users": "Users",
+        "user": "User",
+        "companies": "Companies",
+        "company": "Company",
+        "admin": "Admin",
+        "logout": "Logout",
+        "visitor": "Visitor",
+        "visitors": "Visitor",
+        "attachments": "Attachment",
+        "attachment": "Attachment"
+    },
+    "common": {
+        "show": "Show",
+        "search-for": "Search",
+        "search": "Search",
+        "reset": "Reset",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "add": "Save",
+        "update": "Update",
+        "detail": "Detail",
+        "attachment": "Attachment",
+        "download": "Download",
+        "actions": "Actions",
+        "edit": "Edit",
+        "view": "View",
+        "create": "Create",
+        "choose": "Choose",
+        "upload": "Upload",
+        "save": "Save",
+        "back": "Back",
+        "list": "List",
+        "emptymessage": "No results",
+        "from-creation-date": "creation date from",
+        "to-creation-date": "creation date to",
+        "from-update-date": "modification date from",
+        "creation-date": "creation date",
+        "start-date": "start date",
+        "update-date": "update date",
+        "start-date-from": "start date from",
+        "start-date-to": "start date to",
+        "expiration-date": "expiration date",
+        "received-date-from": "received date from",
+        "received-date-to": "received date to",
+        "update-date-from": "update date from",
+        "update-date-to": "update date to",
+        "typology": "Typology",
+        "summary": "Summary",
+        "certified": "Certified",
+        "object-type": "Object Type",
+        "operation-type": "Operation Type",
+        "principal": "Principal",
+        "object-uuid": "Object Uuid",
+        "received-date": "Received Date",
+        "next": "Next",
+        "complete": "Complete",
+        "completed": "Completed",
+        "complete-all": "Complete All",
+        "resend": "Resend",
+        "resend-all": "Resend All",
+        "download-pos": "Download POS",
+        "start-signing": "Start signing"
+    },
+    "users": {
+        "fiscalcode": "Fiscal Code",
+        "name": "Name",
+        "surname": "Surname",
+        "city": "City",
+        "province": "Province",
+        "email": "Email",
+        "address": "Address",
+        "mobile_phone": "Mobile Phone",
+        "company": "Company",
+        "attachment": "Attachment",
+        "active": "Active",
+        "selected-users": "Selected Users",
+
+        "list": {
+            "list-of-users": "List of users",
+            "verify": "Verify"
+        },
+        "verification": {
+            "user-verification": "User verification",
+            "identification-type": "Identification type"
+        },
+        "edit": {
+            "edit-user": "Edit user"
+        },
+        "view": {
+            "user-details": "User details"
+        }
+    },
+    "companies": {
+        "list": {
+            "companies-list": "Companies List",
+            "name": "Name",
+            "description": "Description",
+            "address": "Address",
+            "city": "City",
+            "province": "Province",
+            "active": "Active"
+        },
+        "edit": {
+            "edit-comp": "Edit company"
+        },
+        "view": {
+            "view-company": "View company"
+        }
+    },
+
+    "visitors": {
+        "list": {
+            "visitors-list": "Visitors List",
+            "fiscalcode": "Fiscal Code",
+            "exit_date": "Exit Date",
+            "entrance_date": "Entrance Date"
+
+        },
+        "edit": {
+            "edit-visitor": "Edit Visitor"
+        },
+        "view": {
+            "view-visitor": "View Visitor"
+        },
+        "create": {
+            "create-visitor": "Create Visitor"
+        }
+    },
+
+    "attachments": {
+        "list": {
+            "attachments-list": "Attachments List",
+            "filename": "File Name",
+            "external_type": "External Type",
+            "external_uuid": "External Code",
+            "mime_type": "Mime Type",
+            "creation_date": "Creation Date",
+            "attachment_uuid": "Attachment File",
+            "file": "File"
+        },
+        "edit": {
+            "edit-attachment": "Edit attachment"
+        },
+        "view": {
+            "view-attachment": "View attachment"
+        }
+    },
+
+    "primeng": {
+        "closeText": "Close",
+        "prevText": "&#x3C;Prec",
+        "nextText": "Succ&#x3E;",
+        "currentText": "Today",
+        "monthNames": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "monthNamesShort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "dayNames": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        "weekHeader": "Sm",
+        "dateFormat": "dd/mm/yy",
+        "isRTL": false,
+        "showMonthAfterYear": false,
+        "yearSuffix": ""
+    }
+}

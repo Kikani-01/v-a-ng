@@ -1,0 +1,71 @@
+<p-sidebar [(visible)]="updateVisible" [dismissible]="false" [modal]="false" [showCloseIcon]="false" position="middle"
+           styleClass="update-bar">
+    <button (click)="update()" class="p-button-secondary pull-right" [pTooltip]="'common.update' | translate" pButton
+            type="button"></button>
+</p-sidebar>
+<div class="{{ sidebarState }}" id="mySidebar" class="sidebar">
+    <ul>
+        <ng-container *ngFor="let page of pages">
+            <li>
+                <a *ngIf="page.routerLink" [routerLink]="page.routerLink" routerLinkActive="active"><i
+                        [ngClass]="page.icon" aria-hidden="true"></i><span>{{ page.label | translate }}</span>
+                </a>
+                <a *ngIf="page.url" href="{{ page.url }}"><i [ngClass]="page.icon" aria-hidden="true"></i><span>{{
+                    page.label }}</span>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+
+<div class="navbar-top">
+    <div class="p-d-flex p-ai-center">
+
+        <div class="openbtn" (click)="toggleNav()">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+
+        <div class="title-wrapper" routerLink="/">
+            <h3>NESS - Virtual Assistant</h3>
+        </div>
+        <div class="toggle-wrapper">
+            <span class="p-mr-4">{{ 'homepage.version' | translate }} {{ title }}</span>
+
+            <label>
+                <p-dropdown (onChange)="changeLang($event.value)" [options]="translateService.getLangs()"
+                            [(ngModel)]="selectedLanguage">
+                </p-dropdown>
+            </label>
+        </div>
+    </div>
+
+    <ul class="user-menu">
+        <li *ngIf="!mobile">{{ 'homepage.welcome' | translate }}!</li>
+        <li *ngIf="!mobile">
+            <a (click)="op.toggle($event)" style="cursor: pointer;">
+                <span class="profile-name p-d-flex p-ai-center">
+                    <i class="pi pi-user p-mr-1" style="font-size: 16px;"></i>
+                    <strong>
+                        {{ user?.name }} {{ user?.surname }}
+                    </strong>
+                </span>
+
+            </a>
+        </li>
+        <p-overlayPanel #op>
+            <div>
+                Role: <span class="role"> {{ primaryRole }}</span>
+            </div>
+            <div class="bt" style="border-top: 1px solid #ddd;padding-top:10px">
+                <a (click)="logout()" style="cursor: pointer;"> {{ 'homepage.logout' | translate }}
+                </a>
+            </div>
+        </p-overlayPanel>
+    </ul>
+</div>
+<div id="main" [ngClass]="{
+        open: sidebarState === 'sidebar close',
+        close: sidebarState === 'sidebar open'
+    }">
+    <router-outlet></router-outlet>
+</div>

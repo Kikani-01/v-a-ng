@@ -1,0 +1,181 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<p-confirmDialog
+    acceptLabel="OK"
+    [closable]="false"
+    [style]="{ width: '50vw' }"
+></p-confirmDialog>
+
+<div class="top-wrapper">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-6">
+            <h1>
+                {{
+                    element.uuid
+                        ? ('common.edit' | translate)
+                        : ('common.create' | translate)
+                }}
+                {{ 'users.attachment' | translate }}
+            </h1>
+        </div>
+        <div class="p-col-12 p-md-6">
+            <button
+                pButton
+                type="button"
+                class="p-button-secondary pull-right"
+                icon="fa fa-save"
+                [pTooltip]="'common.save' | translate"
+                (click)="save()"
+                [disabled]="!registerForm.valid"
+                *ngIf="!element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-secondary pull-right"
+                icon="fa fa-save"
+                [pTooltip]="'common.update' | translate"
+                (click)="update()"
+                [disabled]="!registerForm.valid"
+                *ngIf="element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-tertiary pull-right"
+                icon="fa fa-trash"
+                [pTooltip]="'common.delete' | translate"
+                [pTooltip]="'common.delete' | translate"
+                tooltipPosition="top"
+                (click)="delete()"
+                *ngIf="element.uuid"
+            ></button>
+            <button
+                pButton
+                type="button"
+                class="p-button-primary pull-right"
+                icon="fa fa-window-close"
+                [label]="'common.cancel' | translate"
+                tooltipPosition="top"
+                (click)="goToList()"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="p-grid">
+        <div class="p-col-12">
+            <form [formGroup]="registerForm">
+                <p-card>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+
+                            <div class="form-group p-grid"
+                                style="align-items: center">
+                                <div class="p-col-3">
+                                    {{ 'attachments.list.filename' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.filename"
+                                        formControlName="name"
+                                        name="name"
+                                        pInputText
+                                        [placeholder]="
+                                            'attachments.list.filename' | translate | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid"
+                                style="align-items: center">
+                                <div class="p-col-3">
+                                    {{ 'attachments.list.external_type' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.external_type"
+                                        formControlName="external_type"
+                                        name="external_type"
+                                        pInputText
+                                        [placeholder]="
+                                            'attachments.list.external_type' | translate | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid"
+                                style="align-items: center">
+                                <div class="p-col-3">
+                                    {{ 'attachments.list.external_uuid' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.external_uuid"
+                                        formControlName="external_uuid"
+                                        name="external_uuid"
+                                        pInputText
+                                        [placeholder]="
+                                            'attachments.list.external_uuid' | translate | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid"
+                                style="align-items: center">
+                                <div class="p-col-3">
+                                    {{ 'attachments.list.mime_type' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.mime_type"
+                                        formControlName="mime_type"
+                                        name="mime_type"
+                                        pInputText
+                                        [placeholder]="
+                                            'attachments.list.mime_type' | translate | lowercase
+                                        "
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid"
+                                style="align-items: center">
+                                <div class="p-col-3">
+                                    {{ 'attachments.list.file' | translate }} (*)
+                                </div>
+
+                                <div class="p-col-9">
+                                    <input
+                                        [(ngModel)]="element.file"
+                                        formControlName="file"
+                                        name="file"
+                                        pInputText
+                                        [placeholder]="
+                                            'attachments.list.file' | translate | lowercase
+                                        "
+                                        type="file"
+                                    />
+                                </div>
+                                    
+                            </div>
+
+                        </div>
+                    </div>
+                </p-card>
+            </form>
+        </div>
+    </div>
+</div>

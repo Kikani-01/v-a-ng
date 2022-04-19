@@ -1,0 +1,227 @@
+{
+  "vatnumber": "partita IVA",
+  "company_uuid": "Azienda",
+  "last_update": "Data Modifica",
+  "start_date": "Data Inizio",
+  "creation_date": "Data Creazione",
+  "DRAFT": "BOZZA",
+  "CREATED": "CREATO",
+  "STARTED": "AVIVATO",
+  "COMPLETED": "COMPLETATO",
+  "COMPLETED_WITH_ERROR": "COMPLETATO_CON_ERRORI",
+  "EXPIRED": "SCADUTO",
+  "CANCELED": "CANCELLATO",
+  "IN_SIGNATURE": "IN_FIRMA",
+  "name": "Nome",
+  "surname": "Cognome",
+  "mobile_phone": "Telefono",
+  "email": "Email",
+  "address": "Indirizzo",
+  "company": "Azienda",
+  "signature_date": "Data Firma",
+  "received_date": "Data Ricezione",
+  "operation_type": "Typo Operazione",
+  "obj_type": "Tipo Oggetto",
+  "obj_uuid": "Uuid Oggetto",
+  "COMPANIES": "AZIENDE",
+  "SIGNATURE": "SIGNATURE",
+  "CUSTOMERS": "CLIENTI",
+  "CONFIGURATIONS": "CONFIGURAZIONI",
+  "USERS": "UTENTI",
+  "homepage": {
+    "welcome": "Benvenuto",
+    "version": "Versione",
+    "dashboard": "Dashboard",
+    "users": "Utenti",
+    "user": "Utente",
+    "companies": "Aziende",
+    "admin": "Ammministratore",
+    "logout": "Logout",
+    "visitors": "Visititore",
+    "visitor": "Visititore",
+    "attachments": "Attaccamento",
+    "attachment": "Attaccamento"
+  },
+  "common": {
+    "show": "Mostra",
+    "search-for": "Ricerca",
+    "search": "Cerca",
+    "reset": "Annulla",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "update": "Aggiorna",
+    "add": "Aggiungi",
+    "detail": "Dettaglio",
+    "attachment": "Allegato",
+    "download": "Scarica",
+    "actions": "Operazioni",
+    "edit": "Modifica",
+    "view": "Vedi",
+    "create": "Creare",
+    "choose": "Scegli",
+    "upload": "Carica",
+    "save": "Salva",
+    "list": "Lista",
+    "back": "Torna indietro",
+    "emptymessage": "Nessun risultato",
+    "from-creation-date": "da data creazione",
+    "to-creation-date": "a data creazione",
+    "from-update-date": "da data modifica",
+    "creation-date": "data creazione",
+    "start-date": "data inizio",
+    "update-date": "data modifica",
+    "start-date-from": "da data inizio",
+    "start-date-to": "a data inizio",
+    "expiration-date": "data scadenza",
+    "received-date-from": "da data ricezione",
+    "received-date-to": "a data ricezione",
+    "update-date-from": "da data modifica",
+    "update-date-to": "a data modifica",
+    "typology": "Tipologia",
+    "summary": "Sommario",
+    "certified": "Certificato",
+    "object-type": "Tipo Oggetto",
+    "operation-type": "Tipo Operazione",
+    "principal": "Principale",
+    "object-uuid": "Uuid oggetto",
+    "received-date": "Data Ricezione",
+    "next": "Successivo",
+    "complete": "Completa",
+    "completed": "Completato",
+    "complete-all": "Completa tutti",
+    "resend": "Reinvia",
+    "resend-all": "Reinvia tutti",
+    "download-pos": "Scarica POS"
+  },
+  "users": {
+    "fiscalcode": "Codice fiscale",
+    "name": "Nome",
+    "surname": "Cognome",
+    "city": "Città",
+    "province": "Provincia",
+    "mobile_phone": "Telefono",
+    "email": "Email",
+    "attachment":"Attaccamento",
+    "address": "Indirizzo",
+    "company": "Azienda",
+    "active": "Attivo",
+    "selected-users": "Utenti selezionati",
+
+    "list": {
+      "list-of-users": "Lista Utenti",
+      "verify": "Verifica"
+    },
+    "verification": {
+      "user-verification": "Verifica utente",
+      "detail": "Dettaglio",
+      "identification-type": "Tipo identificazione",
+      "attachment": "Allegato"
+    },
+    "edit": {
+      "edit-user": "Modifica Utente",
+      "date-of-birth": "Data di nascita"
+    },
+    "view": {
+      "user-details": "Dettaglio Utente"
+    }
+  },
+  "companies": {
+    "list": {
+      "companies-list": "Lista Aziende",
+      "name": "Nome",
+      "description": "Descrizione",
+      "address": "Indirizzo",
+      "city": "Città",
+      "province": "Provincia",
+      "active": "Attivo"
+    },
+    "edit": {
+      "edit-comp": "Modifica Azienda"
+    },
+    "view": {
+      "view-company": "Dettaglio Azienda"
+    }
+  },
+  "visitors": {
+    "list": {
+      "visitors-list": "Lista Visitatori",
+      "fiscalcode": "Codice fiscale",
+      "exit_date": "Data di uscita",
+      "entrance_date": "Data di entra"
+    },
+    "edit": {
+      "edit-visitor": "Modifica Visitatore"
+    },
+    "view": {
+      "view-visitor": "Dettaglio Visitatore"
+    }
+  },
+  "attachments": {
+    "list": {
+      "attachments-list": "Lista Allegati",
+      "name": "Nome",
+      "external_type": "Tipo Esterno",
+      "external_uuid": "Codice Esterno",
+      "mime_type": "Tipo Mimo",
+      "creation_date": "Data di Creazione",
+      "attachment_uuid": "File allegato",
+      "file": "File"
+    },
+    "edit": {
+      "edit-attachment": "Modifica Allegati"
+    },
+    "view": {
+      "view-attachment": "Dettaglio Allegati"
+    }
+  },
+  "primeng": {
+    "closeText": "Chiudi",
+    "prevText": "&#x3C;Prec",
+    "nextText": "Succ&#x3E;",
+    "currentText": "Oggi",
+    "monthNames": [
+      "Gennaio",
+      "Febbraio",
+      "Marzo",
+      "Aprile",
+      "Maggio",
+      "Giugno",
+      "Luglio",
+      "Agosto",
+      "Settembre",
+      "Ottobre",
+      "Novembre",
+      "Dicembre"
+    ],
+    "monthNamesShort": [
+      "Gen",
+      "Feb",
+      "Mar",
+      "Apr",
+      "Mag",
+      "Giu",
+      "Lug",
+      "Ago",
+      "Set",
+      "Ott",
+      "Nov",
+      "Dic"
+    ],
+    "dayNames": [
+      "Domenica",
+      "Lunedì",
+      "Martedì",
+      "Mercoledì",
+      "Giovedì",
+      "Venerdì",
+      "Sabato"
+    ],
+    "dayNamesShort": ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+    "dayNamesMin": ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+    "weekHeader": "Sm",
+    "dateFormat": "dd/mm/yy",
+    "isRTL": false,
+    "showMonthAfterYear": false,
+    "yearSuffix": ""
+  }
+}

@@ -1,0 +1,227 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<div>
+    <div class="top-wrapper">
+        <div class="p-grid">
+            <div class="p-col-6">
+                <h1>{{ 'users.view.user-details' | translate }}</h1>
+            </div>
+            <div class="p-col-6">
+                <ng-container *ngIf="fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-home"
+                        pTooltip="Home"
+                        [routerLink]="['/']"
+                        tooltipPosition="left"
+                    ></button>
+                </ng-container>
+                <ng-container *ngIf="!fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        appBackButton
+                        class="p-button-primary pull-right"
+                        icon="pi pi-angle-left"
+                        [pTooltip]="'common.back' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="element">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-card>
+                    <p-header>
+                        <div class="sub-section-wrapper">
+                            {{ 'common.detail' | translate }}
+                        </div>
+                    </p-header>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.fiscalcode' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.fiscalcode }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.name' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.name }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.surname' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.surname }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.address' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.address }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.city' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.city }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.province' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.province }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.email' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.email }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.mobile_phone' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.mobile_phone }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.company' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    <a
+                                        [routerLink]="[
+                                            '/companies/view/',
+                                            element.company_uuid
+                                        ]"
+                                    >
+                                        {{ element.company_name }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'users.active' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.active }}
+                                </div>
+                            </div>
+
+                            <div
+                                *ngIf="element.attachment_uuid"
+                                class="form-group p-grid"
+                            >
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'common.attachment' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">
+                                    <a
+                                        [href]="
+                                            downloadURL +
+                                            '/' +
+                                            element.attachment_uuid +
+                                            '/download'
+                                        "
+                                    >
+                                        <p-button
+                                            label="download"
+                                            class="p-button-link p-button-sm"
+                                        >
+                                        </p-button>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

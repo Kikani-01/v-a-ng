@@ -1,0 +1,208 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<p-overlayPanel #op>
+    <p-card *ngIf="attachment">
+        <div class="p-grid">
+            <div class="p-col-12">
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>{{ 'attachments.list.filename' | translate }}</label>
+                    </div>
+                    <div class="p-col-12">{{ attachment.filename }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'attachments.list.external_type' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ attachment.external_type }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'attachments.list.external_uuid' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ attachment.external_uuid }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'attachments.list.mime_type' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ attachment.mime_type }}</div>
+                </div>
+
+            </div>
+        </div>
+    </p-card>
+</p-overlayPanel>
+
+<div>
+    <div class="top-wrapper">
+        <div class="p-grid">
+            <div class="p-col-6">
+                <h1>{{ 'attachments.view.view-attachment' | translate }}</h1>
+            </div>
+            <div class="p-col-6">
+                <ng-container *ngIf="fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-home"
+                        pTooltip="Home"
+                        [routerLink]="['/']"
+                        tooltipPosition="left"
+                    ></button>
+                </ng-container>
+                <ng-container *ngIf="!fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        appBackButton
+                        class="p-button-primary pull-right"
+                        icon="pi pi-angle-left"
+                        [pTooltip]="'common.back' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="element">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-card>
+                    <p-header>
+                        <div class="sub-section-wrapper">
+                            {{ 'common.detail' | translate }}
+                        </div>
+                    </p-header>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'attachment.list.name' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.name }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'attachment.list.external_type' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.external_type }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'attachment.list.external_uuid' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.external_uuid }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'attachment.list.mime_type' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.mime_type }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'attachment.list.creation_date' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.creation_date }}</div>
+                            </div>
+
+                            <div
+                            *ngIf="element.file"
+                            class="form-group p-grid"
+                        >
+                            <div class="p-col-2">
+                                <label>{{
+                                    'common.attachment' | translate
+                                }}</label>
+                            </div>
+                            <div class="p-col-10">
+                                <a
+                                    [href]="
+                                        downloadURL +
+                                        '/' +
+                                        element.file +
+                                        '/download'
+                                    "
+                                >
+                                    <p-button
+                                        label="download"
+                                        class="p-button-link p-button-sm"
+                                    >
+                                    </p-button>
+                                </a>
+                            </div>
+                        </div>
+
+                            
+
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>
