@@ -1,0 +1,61 @@
+<div class="tags-wrapper">
+    <ng-container *ngFor="let operator of operators">
+        <ng-container *ngIf="operator != 'startRow' &&
+        operator != 'pageSize' &&
+        operator != 'orderBy'">
+            <ng-container *ngFor="let field of fields[operator]">
+                <ng-container *ngIf="hiddenFields?.indexOf(field) < 0">
+                    <ng-container *ngIf="search[operator][field] !== null">
+                        <div class="tag-item">
+                            <strong>
+                {{
+                  labels[field]
+                    ? (labels[field] | translate | lowercase)
+                    : (field
+                        .replace("_", " ")
+                        .replace("_", " ")
+                        .replace("_", " ")
+                        .replace("_", " ") | translate | lowercase)
+                }}
+
+                <ng-container *ngIf="operator === 'obj'">=</ng-container>
+                <ng-container *ngIf="operator === 'like'">≈</ng-container>
+                <ng-container *ngIf="operator === 'not'">≠</ng-container>
+                <ng-container *ngIf="operator === 'from'">>=</ng-container>
+                <ng-container *ngIf="operator === 'to'">=</ng-container>
+                <ng-container *ngIf="operator === 'nil'">:</ng-container>
+                <ng-container *ngIf="operator === 'notNil'">:</ng-container>
+              </strong>
+
+                            <ng-container *ngIf="operator != 'nil' && operator != 'notNil'">
+                                {{
+                  values[search[operator][field]]
+                    ? (values[search[operator][field]] | translate )
+                    : (search[operator][field] | printable | translate)
+                }}
+                            </ng-container>
+                            <ng-container *ngIf="operator === 'nil'">not present</ng-container>
+                            <ng-container *ngIf="operator === 'notNil'">here I'm</ng-container>
+
+                            <button
+                                *ngIf="false"
+                                class="btn-close"
+                                (click)="search[operator][field] = null">
+                                <i
+                                    class="fa fa-times"
+                                    aria-hidden="true"></i>
+                            </button>
+                            <button
+                                class="btn-close"
+                                (click)="remove(operator, field)">
+                                <i
+                                    class="fa fa-times"
+                                    aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

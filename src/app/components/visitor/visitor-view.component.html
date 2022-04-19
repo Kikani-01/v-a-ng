@@ -1,0 +1,160 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<p-overlayPanel #op>
+    <p-card *ngIf="visitor">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>{{ 'visitors.list.fiscalcode' | translate }}</label>
+                    </div>
+                    <div class="p-col-12">{{ visitor.fiscalcode }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'visitors.list.entrance_date' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ visitor.entrance_date }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'visitors.list.exit_date' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ visitor.exit_date }}</div>
+                </div>
+
+            </div>
+        </div>
+    </p-card>
+</p-overlayPanel>
+
+<div>
+    <div class="top-wrapper">
+        <div class="p-grid">
+            <div class="p-col-6">
+                <h1>{{ 'visitors.view.view-visitors' | translate }}</h1>
+            </div>
+            <div class="p-col-6">
+                <ng-container *ngIf="fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-home"
+                        pTooltip="Home"
+                        [routerLink]="['/']"
+                        tooltipPosition="left"
+                    ></button>
+                </ng-container>
+                <ng-container *ngIf="!fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        appBackButton
+                        class="p-button-primary pull-right"
+                        icon="pi pi-angle-left"
+                        [pTooltip]="'common.back' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="element">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-card>
+                    <p-header>
+                        <div class="sub-section-wrapper">
+                            {{ 'common.detail' | translate }}
+                        </div>
+                    </p-header>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'visitors.fiscalcode' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.fiscalcode }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>
+                                        {{
+                                            'visitors.list.entrance_date'
+                                                | translate
+                                        }}
+                                    </label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.entrance_date }}
+                                </div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>
+                                        {{
+                                            'visitors.list.exit_date'
+                                                | translate
+                                        }}
+                                    </label>
+                                </div>
+                                <div class="p-col-10">
+                                    {{ element.exit_date }}
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

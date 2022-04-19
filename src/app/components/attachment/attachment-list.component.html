@@ -1,0 +1,184 @@
+<p-messages [(value)]="msgs" closable="false"></p-messages>
+
+<p-overlayPanel #op [dismissable]="false" appendTo="body" styleClass="clearfix">
+    <div class="form-group">
+        <input
+            id="external_type"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.like.external_type"
+            [placeholder]="'attachments.list.external_type' | translate | lowercase"
+        />
+    </div>
+
+    <div class="form-group">
+        <input
+            id="external_uuid"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.like.external_uuid"
+            [placeholder]="'attachments.list.external_uuid' | translate | lowercase"
+        />
+    </div>
+
+    <div class="p-d-flex p-jc-center">
+        <button
+            type="button"
+            pButton
+            class="btn-block p-button-secondary p-mr-2"
+            [label]="'common.search-for' | translate | lowercase"
+            icon="fa fa-search"
+            (click)="reload(datatable)">
+        </button>
+        <button
+            type="button"
+            pButton
+            class="btn-block"
+            [label]="'common.reset' | translate | lowercase"
+            icon="fa fa-times"
+            (click)="reset(datatable)">
+        </button>
+            
+    </div>
+</p-overlayPanel>
+
+<div class="top-wrapper">
+    <div class="p-grid">
+        <div class="p-col-6">
+            <h1>{{ 'attachments.list.attachments-list' | translate }}</h1>
+        </div>
+        <div class="p-col-6">
+            <button
+                class="p-button-secondary pull-right"
+                [pTooltip]="'common.create' | translate"
+                tooltipPosition="top"
+                type="button"
+                pButton
+                [routerLink]="['/attachments/new']"
+                icon="pi pi-plus"
+            ></button>
+            <button
+                class="p-button-primary pull-right"
+                type="button"
+                pButton
+                (click)="back()"
+                icon="pi pi-home"
+                pTooltip="Home page"
+                tooltipPosition="left"
+            ></button>
+            <button
+                type="button"
+                class="p-button-primary pull-right"
+                pButton
+                (click)="op.toggle($event)"
+                [label]="'common.search' | translate"
+                icon="fa fa-search"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-card>
+                <app-search-tags
+                    [search]="service.search"
+                    [labels]="labels"
+                    [values]="values"
+                    (cancel)="reload(datatable)"
+                >
+                </app-search-tags>
+                <div class="clearfix"></div>
+                <p-table
+                    stateStorage="session"
+                    [stateKey]="path + '_table'"
+                    [value]="model"
+                    [lazy]="true"
+                    (onLazyLoad)="lazyLoad($event)"
+                    [paginator]="true"
+                    [responsive]="true"
+                    [rows]="service.search.pageSize"
+                    [totalRecords]="service.listSize"
+                    [resizableColumns]="true"
+                    #datatable
+                >
+                    <ng-template pTemplate="header" class="search-filter">
+                        <tr class="sort-header">
+                            <th
+                                pResizableColumn
+                                class="row-index"
+                                width="50"
+                            ></th>
+                            <th pResizableColumn>
+                                {{ 'attachments.list.filename' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'attachments.list.external_type' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'attachments.list.external_uuid' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'attachments.list.mime_type' | translate }}
+                            </th>
+                            <th style="width: 190px;"></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">No result</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template
+                        pTemplate="body"
+                        let-rowData
+                        let-rowIndex="rowIndex"
+                    >
+                        <tr>
+                            <td>{{ rowIndex + 1 }}</td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.filename }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.external_type }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.external_uuid }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.mime_type }}
+                            </td>
+                            <td style="text-align: center;">
+                                <button
+                                    type="button"
+                                    pButton
+                                    (click)="edit(rowData)"
+                                    class="p-button  p-mr-1"
+                                    [pTooltip]="
+                                        'common.edit' | translate | lowercase
+                                    "
+                                    icon="fa fa-pencil"
+                                    routerLink ="./attachment-edit.component.html"
+                                ></button>
+                                <button
+                                    type="button"
+                                    pButton
+                                    (click)="view(rowData)"
+                                    class="p-button "
+                                    [pTooltip]="
+                                        'common.view' | translate | lowercase
+                                    "
+                                    tooltipPosition="left"
+                                    icon="fa fa-info"
+                                ></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-card>
+        </div>
+    </div>
+</div>

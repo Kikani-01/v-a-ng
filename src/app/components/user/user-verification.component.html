@@ -1,0 +1,86 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<div>
+    <div class="top-wrapper">
+        <div class="p-grid">
+            <div class="p-col-6">
+                <h1>{{ 'users.verification.user-verification' | translate }}</h1>
+            </div>
+            <div class="p-col-6">
+                <ng-container>
+                    <button
+                        pButton
+                        type="button"
+                        appBackButton
+                        class="p-button-primary pull-right"
+                        icon="pi pi-angle-left"
+                        [pTooltip]="'common.back' | translate"
+                        tooltipPosition="top"
+                    ></button>
+
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="navigateToList()"
+                        icon="pi pi-save"
+                        pTooltip="Save"
+                        tooltipPosition="top"
+                    ></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="element">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-card>
+                    <p-header>
+                        <div class="sub-section-wrapper">{{ 'common.detail' | translate }}</div>
+                    </p-header>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{ 'users.name' | translate }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.name }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{ 'users.surname' | translate }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.surname }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>Identification type</label>
+                                </div>
+                                <div class="p-col-10">DE_VISU</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{ 'common.attachment' | translate }}</label>
+                                </div>
+                                <div class="p-col-9">
+                                    <p-fileUpload
+                                        name="files[]"
+                                        customUpload="true"
+                                        [showCancelButton]="false"
+                                        [files]="selectedFile"
+                                        (onRemove)="onDocumentRemove($event)"
+                                        (uploadHandler)="onDocumentUpload($event)"
+                                    ></p-fileUpload>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

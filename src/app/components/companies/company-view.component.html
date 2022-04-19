@@ -1,0 +1,210 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+<p-overlayPanel #op>
+    <p-card *ngIf="company">
+        <div class="p-grid">
+            <div class="p-col-12">
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>{{ 'companies.list.name' | translate }}</label>
+                    </div>
+                    <div class="p-col-12">{{ company.name }}</div>
+                </div>
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'companies.list.description' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ company.description }}</div>
+                </div>
+
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'companies.list.address' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ company.address }}</div>
+                </div>
+
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'companies.list.city' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ company.city }}</div>
+                </div>
+
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'companies.list.province' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ company.province }}</div>
+                </div>
+
+
+                <div class="form-group p-grid">
+                    <div class="p-col-12">
+                        <label>
+                            {{ 'companies.list.active' | translate }}</label
+                        >
+                    </div>
+                    <div class="p-col-12">{{ company.active }}</div>
+                </div>
+
+            </div>
+        </div>
+    </p-card>
+</p-overlayPanel>
+
+<div>
+    <div class="top-wrapper">
+        <div class="p-grid">
+            <div class="p-col-6">
+                <h1>{{ 'companies.view.view-company' | translate }}</h1>
+            </div>
+            <div class="p-col-6">
+                <ng-container *ngIf="fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-home"
+                        pTooltip="Home"
+                        [routerLink]="['/']"
+                        tooltipPosition="left"
+                    ></button>
+                </ng-container>
+                <ng-container *ngIf="!fromEditPage">
+                    <button
+                        pButton
+                        type="button"
+                        [pTooltip]="'common.list' | translate"
+                        tooltipPosition="top"
+                        (click)="goToList()"
+                        class="p-button-primary pull-right"
+                        icon="pi pi-list"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        class="p-button-secondary pull-right"
+                        (click)="edit(element)"
+                        icon="pi pi-pencil"
+                        [pTooltip]="'common.edit' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                    <button
+                        pButton
+                        type="button"
+                        appBackButton
+                        class="p-button-primary pull-right"
+                        icon="pi pi-angle-left"
+                        [pTooltip]="'common.back' | translate"
+                        tooltipPosition="top"
+                    ></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="element">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-card>
+                    <p-header>
+                        <div class="sub-section-wrapper">
+                            {{ 'common.detail' | translate }}
+                        </div>
+                    </p-header>
+                    <div class="p-grid">
+                        <div class="p-col-12">
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.name' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.name }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.description' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.description }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.address' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.address }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.city' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.city }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.province' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.province }}</div>
+                            </div>
+
+                            <div class="form-group p-grid">
+                                <div class="p-col-2">
+                                    <label>{{
+                                        'companies.list.active' | translate
+                                    }}</label>
+                                </div>
+                                <div class="p-col-10">{{ element.active }}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

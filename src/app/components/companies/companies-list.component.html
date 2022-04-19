@@ -1,0 +1,231 @@
+<p-messages [(value)]="msgs" closable="false"></p-messages>
+
+<p-overlayPanel #op [dismissable]="false" appendTo="body" styleClass="clearfix">
+    <div class="form-group">
+        <input
+            id="name"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.like.name"
+            [placeholder]="'companies.list.name' | translate | lowercase"
+        />
+    </div>
+
+    <div class="form-group">
+        <input
+            id="description"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.obj.description"
+            [placeholder]="'companies.list.description' | translate | lowercase"
+        />
+    </div>
+
+    <div class="form-group">
+        <input
+            id="city"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.obj.city"
+            [placeholder]="'companies.list.city' | translate | lowercase"
+        />
+    </div>
+
+    <div class="form-group">
+        <input
+            id="province"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.obj.province"
+            [placeholder]="'companies.list.province' | translate | lowercase"
+        />
+    </div>
+
+    <div class="form-group">
+        <input
+            id="active"
+            type="text"
+            size="30"
+            pInputText
+            [(ngModel)]="service.search.obj.active"
+            [placeholder]="'companies.list.active' | translate | lowercase"
+        />
+    </div>
+
+    <div class="p-d-flex p-jc-center">
+        <button
+            type="button"
+            pButton
+            class="btn-block p-button-secondary p-mr-2"
+            [label]="'common.search-for' | translate | lowercase"
+            icon="fa fa-search"
+            (click)="reload(datatable)">
+        </button>
+        <button
+            type="button"
+            pButton
+            class="btn-block"
+            [label]="'common.reset' | translate | lowercase"
+            icon="fa fa-times"
+            (click)="reset(datatable)">
+        </button>
+            
+    </div>
+</p-overlayPanel>
+
+<div class="top-wrapper">
+    <div class="p-grid">
+        <div class="p-col-6">
+            <h1>{{ 'companies.list.companies-list' | translate }}</h1>
+        </div>
+        <div class="p-col-6">
+            <button
+                class="p-button-secondary pull-right"
+                [pTooltip]="'common.create' | translate"
+                tooltipPosition="top"
+                type="button"
+                pButton
+                [routerLink]="['/companies/new']"
+                icon="pi pi-plus"
+            ></button>
+            <button
+                class="p-button-primary pull-right"
+                type="button"
+                pButton
+                (click)="back()"
+                icon="pi pi-home"
+                pTooltip="Home page"
+                tooltipPosition="left"
+            ></button>
+            <button
+                type="button"
+                class="p-button-primary pull-right"
+                pButton
+                (click)="op.toggle($event)"
+                [label]="'common.search' | translate"
+                icon="fa fa-search"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-card>
+                <app-search-tags
+                    [search]="service.search"
+                    [labels]="labels"
+                    [values]="values"
+                    (cancel)="reload(datatable)"
+                >
+                </app-search-tags>
+                <div class="clearfix"></div>
+                <p-table
+                    stateStorage="session"
+                    [stateKey]="path + '_table'"
+                    [value]="model"
+                    [lazy]="true"
+                    (onLazyLoad)="lazyLoad($event)"
+                    [paginator]="true"
+                    [responsive]="true"
+                    [rows]="service.search.pageSize"
+                    [totalRecords]="service.listSize"
+                    [resizableColumns]="true"
+                    #datatable
+                >
+                    <ng-template pTemplate="header" class="search-filter">
+                        <tr class="sort-header">
+                            <th
+                                pResizableColumn
+                                class="row-index"
+                                width="50"
+                            ></th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.name' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.description' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.address' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.city' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.province' | translate }}
+                            </th>
+                            <th pResizableColumn>
+                                {{ 'companies.list.active' | translate }}
+                            </th>
+                            <th style="width: 190px;"></th>
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">No result</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template
+                        pTemplate="body"
+                        let-rowData
+                        let-rowIndex="rowIndex"
+                    >
+                        <tr>
+                            <td>{{ rowIndex + 1 }}</td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.name }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.description }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.address }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.city }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.province }}
+                            </td>
+                            <td class="ui-resizable-column">
+                                {{ rowData?.active }}
+                            </td>
+
+                            <td style="text-align: center;">
+                                <button
+                                    type="button"
+                                    pButton
+                                    (click)="edit(rowData)"
+                                    class="p-button  p-mr-1"
+                                    [pTooltip]="
+                                        'common.edit' | translate | lowercase
+                                    "
+                                    icon="fa fa-pencil"
+                                ></button>
+                                <button
+                                    type="button"
+                                    pButton
+                                    (click)="view(rowData)"
+                                    class="p-button "
+                                    [pTooltip]="
+                                        'common.view' | translate | lowercase
+                                    "
+                                    tooltipPosition="left"
+                                    icon="fa fa-info"
+                                ></button>
+                                
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-card>
+        </div>
+    </div>
+</div>
