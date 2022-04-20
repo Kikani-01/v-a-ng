@@ -148,14 +148,11 @@
             "visitors-list": "Visitors List",
             "fiscalcode": "Fiscal Code",
             "exit_date": "Exit Date",
-            "entrance_date": "Entrance Date"
-
+            "entrance_date": "Entrance Date",
+            "view-visitor": "View Visitor"
         },
         "edit": {
             "edit-visitor": "Edit Visitor"
-        },
-        "view": {
-            "view-visitor": "View Visitor"
         },
         "create": {
             "create-visitor": "Create Visitor"

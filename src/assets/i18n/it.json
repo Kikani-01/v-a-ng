@@ -148,13 +148,11 @@
       "visitors-list": "Lista Visitatori",
       "fiscalcode": "Codice fiscale",
       "exit_date": "Data di uscita",
-      "entrance_date": "Data di entra"
+      "entrance_date": "Data di entra",
+      "view-visitor": "Dettaglio Visitatore"
     },
     "edit": {
       "edit-visitor": "Modifica Visitatore"
-    },
-    "view": {
-      "view-visitor": "Dettaglio Visitatore"
     }
   },
   "attachments": {

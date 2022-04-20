@@ -100,8 +100,9 @@
                                     <input
                                         [(ngModel)]="element.entrance_date"
                                         formControlName="entrance_date"
+                                        dataType="string"
                                         name="entrance_date"
-                                        pInputText
+                                        dateFormat="yy/mm/dd"
                                         [placeholder]="
                                             'visitors.list.entrance_date' | translate | lowercase
                                         "
@@ -120,8 +121,9 @@
                                 <input
                                     [(ngModel)]="element.exit_date"
                                     formControlName="exit_date"
+                                    dateFormat="yy/mm/dd"
+                                    dataType="string"
                                     name="exit_date"
-                                    pInputText
                                     [placeholder]="
                                         'visitors.list.exit_date' | translate | lowercase
                                     "
