@@ -15,9 +15,8 @@
     <div class="form-group">
         <input
             id="entrance_date"
+            dateFormat="yy/mm/dd"
             type="datetime-local"
-            size="40"
-            pInputText
             [(ngModel)]="service.search.obj.entrance_date"
             [placeholder]="'visitors.list.entrance_date' | translate | lowercase"
         />
@@ -26,9 +25,8 @@
     <div class="form-group">
         <input
             id="exit_date"
+            dateFormat="yy/mm/dd"
             type="datetime-local"
-            size="40"
-            pInputText
             [(ngModel)]="service.search.obj.exit_date"
             [placeholder]="'visitors.list.exit_date' | translate | lowercase"
         />

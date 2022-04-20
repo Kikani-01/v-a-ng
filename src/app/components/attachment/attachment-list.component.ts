@@ -34,7 +34,6 @@ export class AttachmentListComponent extends AbstractListComponent<Attachment> i
     }
 
     preLoaddata(): void {
-        this.service.search.orderBy = 'name';
         super.preLoaddata();
     }
 
