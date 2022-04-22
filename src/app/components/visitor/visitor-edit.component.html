@@ -57,7 +57,7 @@
 
                                 <div class="p-col-9">
                                     <input [(ngModel)]="element.entrance_date" formControlName="entrance_date" step="1"
-                                        name="entrance_date" pInputText [placeholder]="
+                                        pInputText name="entrance_date" [placeholder]="
                                             'visitors.list.entrance_date' | translate | lowercase
                                         " type="datetime-local" />
                                 </div>
@@ -69,10 +69,10 @@
                                 </div>
 
                                 <div class="p-col-9">
-                                    <input [(ngModel)]="element.exit_date" formControlName="exit_date" name="exit_date"
-                                        step="1" pInputText [placeholder]="
-                                        'visitors.list.exit_date' | translate | lowercase
-                                    " type="datetime-local" />
+                                    <input [(ngModel)]="element.exit_date" formControlName="exit_date" step="1"
+                                        pInputText [placeholder]="
+                                    'visitors.list.exit_date' | translate | lowercase
+                                " type="datetime-local" />
                                 </div>
                             </div>
 
