@@ -1,23 +1,12 @@
 <p-messages [(value)]="msgs" closable="false"></p-messages>
 
 <p-overlayPanel #op [dismissable]="false" appendTo="body" styleClass="clearfix">
-    <div class="form-group">
-        <input
-            id="fiscalcode"
-            type="text"
-            size="40"
-            pInputText
-            [(ngModel)]="service.search.like.fiscalcode"
-            [placeholder]="'visitors.list.fiscalcode' | translate | lowercase"
-        />
-    </div>
 
     <div class="form-group">
         <input
             id="entrance_date"
+            dateFormat="yy/mm/dd"
             type="datetime-local"
-            size="40"
-            pInputText
             [(ngModel)]="service.search.obj.entrance_date"
             [placeholder]="'visitors.list.entrance_date' | translate | lowercase"
         />
@@ -26,9 +15,8 @@
     <div class="form-group">
         <input
             id="exit_date"
+            dateFormat="yy/mm/dd"
             type="datetime-local"
-            size="40"
-            pInputText
             [(ngModel)]="service.search.obj.exit_date"
             [placeholder]="'visitors.list.exit_date' | translate | lowercase"
         />

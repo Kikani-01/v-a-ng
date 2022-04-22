@@ -32,7 +32,6 @@ export class VisitorsListComponent extends AbstractListComponent<Visitor> implem
     }
 
     preLoaddata(): void {
-        this.service.search.orderBy = 'name ASC';
         super.preLoaddata();
     }
 

@@ -25,7 +25,7 @@ export class AttachmentListComponent extends AbstractListComponent<Attachment> i
         this.labels['creation_date'] = 'creation_date';
     }
     ngOnInit(): void {
-        console.log('ATTACHMENT', this.model);
+        console.log('ATTACHMENTS', this.model);
 
     }
 
@@ -34,7 +34,6 @@ export class AttachmentListComponent extends AbstractListComponent<Attachment> i
     }
 
     preLoaddata(): void {
-        this.service.search.orderBy = 'name';
         super.preLoaddata();
     }
 
