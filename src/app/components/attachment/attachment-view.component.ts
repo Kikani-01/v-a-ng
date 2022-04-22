@@ -23,7 +23,8 @@ export class AttachmentViewComponent extends AbstractViewComponent<Attachment> {
 
     this.fromEditPage =
       previousRouteService.getPreviousUrl().includes('edit') ||
-      previousRouteService.getPreviousUrl().includes('new');
+      previousRouteService.getPreviousUrl().includes('new') ||
+      previousRouteService.getPreviousUrl().includes('create');
   }
 
   ngOnInit(): void {

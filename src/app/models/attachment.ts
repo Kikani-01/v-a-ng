@@ -1,5 +1,4 @@
 export class Attachment {
-  attachment_uuid: string;
   uuid: string;
   filename: string;
   file: string;
